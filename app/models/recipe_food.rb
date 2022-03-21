@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class InventoryFood < ApplicationRecord
+class RecipeFood < ApplicationRecord
   validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  belongs_to :inventory
+  belongs_to :recipe
   belongs_to :food
 end
