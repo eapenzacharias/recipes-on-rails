@@ -1,7 +1,7 @@
 <div class="max-w-sm w-full min-w-full lg:max-w-full flex mb-4">
   <div class="sm:w-full md:w-1/3 border border-r-0 border-gray-400 bg-white rounded-l p-4 flex flex-col justify-between leading-normal">
-    <%= link_to recipe.name, recipes_index_path, class: "text-gray-900 font-bold text-xl mb-2" %>
-    <%= link_to "Remove", foods_index_path, class: "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 w-30 border border-blue-500 hover:border-transparent rounded"%>
+    <%= link_to recipe.name, recipe_path(recipe.id), class: "text-gray-900 font-bold text-xl mb-2" %>
+    <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "flex bg-transparent hover:bg-red-500 text-red-700 justify-center text-sm font-semibold hover:text-white p-1 w-20 border border-red-500 hover:border-transparent rounded"%>
   </div>
   <div class="sm:w-full md:w-2/3 border border-l-0 border-gray-400 bg-white rounded-r p-4 flex flex-col justify-between leading-normal">
     <p class="text-sm text-gray-600 flex items-center">
