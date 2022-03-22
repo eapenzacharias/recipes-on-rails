@@ -7,7 +7,9 @@
       <div class="flex flex-col gap-7"> 
         <% if !@inventories.empty? %>
           <% @inventories.each do |inventory| %>
-            <p class="border p-7 font-bold text-xl"><%= inventory.name %></p>
+            <%= link_to inventory_path(inventory.id) do %>
+              <p class="border p-7 font-bold text-xl"><%= inventory.name %></p>
+            <% end %>
           <% end %>
         <% else %>
           <p class="border p-7 border-yellow-400 bg-yellow-200 font-medium">You don't have any inventories.</p>
