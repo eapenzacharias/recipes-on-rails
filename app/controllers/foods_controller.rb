@@ -68,6 +68,10 @@ class FoodsController < ApplicationController
   end
 
   def destroy
+    @food = Food.find(params[:id])
+    @food.destroy
+    flash.now[:success] = 'Food deleted successfully.'
+    redirect_to foods_path
   end
 >>>>>>> 8f24d78 (Create food routes)
 >>>>>>> b0652e0 (Create food routes)
