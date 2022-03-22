@@ -9,9 +9,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by_id(params[:id])
-    if @recipe == nil
-      @recipe = 'No recipes'
-    end
+    @recipe = 'No recipes' if @recipe.nil?
     @current_user = current_user
   end
 
