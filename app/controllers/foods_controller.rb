@@ -1,5 +1,6 @@
-class FoodsController < ApplicationController
+# frozen_string_literal: true
 
+class FoodsController < ApplicationController
   def new
     @food = Food.new
   end
@@ -9,8 +10,7 @@ class FoodsController < ApplicationController
     @foods = @user.foods
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @user = current_user
@@ -28,8 +28,7 @@ class FoodsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     @food = Food.find(params[:id])
