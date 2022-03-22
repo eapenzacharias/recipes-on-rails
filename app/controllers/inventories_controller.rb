@@ -21,11 +21,11 @@ class InventoriesController < ApplicationController
 
   def create
     @user = current_user
-    inventory = Inventory.new(inventory_params.merge(user_id: @user.id))
-    if inventory.save
+    @inventory = Inventory.new(inventory_params.merge(user_id: @user.id))
+    if @inventory.valid?
+      @inventory.save
       redirect_to inventories_path
     else
-      flash[:alert] = 'Somthing went wrong.'
       render :new
     end
   end
