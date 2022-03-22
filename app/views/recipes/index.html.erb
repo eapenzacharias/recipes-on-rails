@@ -1,4 +1,4 @@
-<div>
-  <h1 class="font-bold text-4xl">Recipes#index</h1>
-  <p>Find me in app/views/recipes/index.html.erb</p>
+<div class="flex flex-col container mx-auto min-w-full">
+  <h1 class="font-bold text-4xl mb-6"> <%= @current_user.name %>'s Recipes</h1>
+  <%= render partial: "shared/recipe", collection: @recipes %>
 </div>
