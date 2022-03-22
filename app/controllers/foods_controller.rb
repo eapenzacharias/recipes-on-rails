@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Food controller
 class FoodsController < ApplicationController
   def new
     @food = Food.new
@@ -16,15 +17,10 @@ class FoodsController < ApplicationController
     @user = current_user
     @food = Food.new(food_params)
     @food.user = @user
-    respond_to do |format|
       if @food.save
-
-        format.html { redirect_to foods_path, flash: { success: 'Food created successfully.' } }
-        format.json { render :index, status: :created, location: @food }
+       redirect_to foods_path, flash: { success: 'Food created successfully.' }
       else
-        format.html { render :new, flash: { danger: @food.errors.messages } }
-        format.json { render json: @food.errors, status: :unprocessable_entity }
-      end
+        render :new, flash: { danger: @food.errors.messages }
     end
   end
 
