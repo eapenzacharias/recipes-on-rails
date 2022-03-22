@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 # frozen_string_literal: true
 
 # Food controller
 class FoodsController < ApplicationController
-<<<<<<< HEAD
   def new
     @food = Food.new
   end
@@ -44,35 +42,4 @@ class FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price)
   end
-=======
-  def index; end
-=======
-class FoodsController < ApplicationController
-
-  def new
-    @food = Food.new
-  end
-
-  def index
-    @user = current_user
-    @foods = @user.foods
-  end
-
-  def show
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def destroy
-    @food = Food.find(params[:id])
-    @food.destroy
-    flash.now[:success] = 'Food deleted successfully.'
-    redirect_to foods_path
-  end
->>>>>>> 8f24d78 (Create food routes)
->>>>>>> b0652e0 (Create food routes)
 end
