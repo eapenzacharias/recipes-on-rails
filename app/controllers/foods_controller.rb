@@ -48,6 +48,12 @@ class FoodsController < ApplicationController
   def index; end
 =======
 class FoodsController < ApplicationController
+  load_and_authorize_resource
+
+  def new
+    @food = Food.new
+  end
+
   def index
   end
 
