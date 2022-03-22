@@ -6,4 +6,6 @@ class InventoriesController < ApplicationController
     @user = current_user
     @inventories = @user.inventories unless @user.nil?
   end
+
+  def show; end
 end
