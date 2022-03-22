@@ -1,4 +1,10 @@
 <div class="flex flex-col container mx-auto min-w-full">
   <h1 class="font-bold text-4xl mb-6"> <%= @current_user.name %>'s Recipes</h1>
-  <%= render partial: "shared/recipe", collection: @recipes %>
+  <% if @recipes.length == 0 %>
+    <div class="py-6 px-2 text-center text-xl font-bold text-amber-500  ">
+      You dont have any recipes!
+    </div>
+  <% else %>
+    <%= render partial: "shared/recipe", collection: @recipes %>
+  <% end %>
 </div>
