@@ -8,3 +8,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 user_1 = User.create(name: 'User 1', email: 'user1@test.com', password: '1234567', password_confirmation: '1234567')
+
+# Inventories
+Inventory.create(name: 'Inventory 1', user_id: 1)
+Inventory.create(name: 'Inventory 2', user_id: 1)
+Inventory.create(name: 'Inventory 3', user_id: 1)
