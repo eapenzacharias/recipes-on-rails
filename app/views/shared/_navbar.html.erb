@@ -10,9 +10,11 @@
   </div>
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
     <div class="text-sm lg:flex-grow">
-      <%= link_to "Recipes", recipes_index_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
-      <%= link_to "Foods", foods_index_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
-      <%= link_to "Inventories", inventories_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+      <% if user_signed_in? %>
+        <%= link_to "Recipes", recipes_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+        <%= link_to "Foods", foods_index_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+        <%= link_to "Inventories", inventories_index_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+      <% end %>
     </div>
     <div>
       <% if user_signed_in? %>
@@ -23,5 +25,4 @@
       <% end %>
     </div>
   </div>
-
 </nav>
