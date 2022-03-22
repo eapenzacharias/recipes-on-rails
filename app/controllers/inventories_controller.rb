@@ -2,5 +2,8 @@
 
 # InventoriesController
 class InventoriesController < ApplicationController
-  def index; end
+  def index
+    @user = current_user
+    @inventories = @user.inventories unless @user.nil?
+  end
 end
