@@ -8,7 +8,11 @@ class FoodsController < ApplicationController
 
   def index
     @user = current_user
-    @foods = @user.foods
+    if @user.nil?
+      redirect_to user_session_path, flash: { alert: 'You must be signed in to continue.' }
+    else
+      @foods = @user.foods
+    end
   end
 
   def show; end
