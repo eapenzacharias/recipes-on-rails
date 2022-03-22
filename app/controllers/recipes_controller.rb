@@ -4,7 +4,11 @@
 class RecipesController < ApplicationController
   def index
     @current_user = current_user
-    @recipes = @current_user.recipes
+    if @current_user.nil?
+      redirect_to user_session_path, flash: { alert: 'You must be signed in to continue.' }
+    else
+      @recipes = @current_user.recipes
+    end
   end
 
   def show
