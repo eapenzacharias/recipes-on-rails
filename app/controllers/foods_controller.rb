@@ -1,7 +1,9 @@
+<<<<<<< HEAD
 # frozen_string_literal: true
 
 # Food controller
 class FoodsController < ApplicationController
+<<<<<<< HEAD
   def new
     @food = Food.new
   end
@@ -42,4 +44,24 @@ class FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price)
   end
+=======
+  def index; end
+=======
+class FoodsController < ApplicationController
+  def index
+  end
+
+  def show
+  end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def destroy
+  end
+>>>>>>> 8f24d78 (Create food routes)
+>>>>>>> b0652e0 (Create food routes)
 end
