@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show, :destroy]
 =======
   get 'foods/index'
-  resources :inventories, only: [:index, :show]
+  resources :inventories, only: [:index, :show, :destroy]
   get 'recipes/index'
 >>>>>>> 0153214 (Add `inventories#show` route)
   # Defines the root path route ("/")

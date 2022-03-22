@@ -7,9 +7,10 @@
       <div class="flex flex-col gap-7"> 
         <% if !@inventories.empty? %>
           <% @inventories.each do |inventory| %>
-            <%= link_to inventory_path(inventory.id) do %>
-              <p class="border p-7 font-bold text-xl"><%= inventory.name %></p>
-            <% end %>
+            <div class="border p-7 font-bold text-xl flex justify-between items-baseline">
+              <%= link_to inventory.name, inventory_path(inventory.id) , class: "hover:text-teal-700"%>
+              <%= button_to "Delete", inventory_path(inventory.id), method: :delete, class: "text-sm px-4 py-2 leading-none border rounded hover:border-transparent hover:bg-red-200" %>
+            </div>
           <% end %>
         <% else %>
           <p class="border p-7 border-yellow-400 bg-yellow-200 font-medium">You don't have any inventories.</p>
