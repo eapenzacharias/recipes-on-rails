@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(@recipe.id)
   end
 
-  # def public_recipes
-  #   @recipes = Recipe.where(public: true)
-  # end
+  def public_recipes
+    @recipes = Recipe.where(public: true)
+  end
 end
