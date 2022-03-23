@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :inventories, only: [:index, :show, :destroy, :new, :create] do
     get 'foods/new', to: 'inventory_foods#new'
     post 'foods', to: 'inventory_foods#create'
-    delete 'foods/:id', to: 'inventory_foods#destroy'
+    delete 'foods/:id', to: 'inventory_foods#destroy', as: 'food'
   end
   resources :recipes, only: [:index, :show, :destroy]
   

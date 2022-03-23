@@ -26,7 +26,7 @@
                   <%= "#{item.quantity} #{item.food.measurement_unit}" %>
                 </td>
                 <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">  
-                  <%= button_to "Delete", inventory_foods_path(@inventory.id, item.id), method: :delete, class:"bg-red-500 text-white font-bold py-2 px-4 rounded" %>
+                  <%= button_to "Delete", inventory_food_path(@inventory.id, item.id), method: :delete, class:"bg-red-500 text-white font-bold py-2 px-4 rounded" %>
                 </td>
               </tr>
             <% end %>

@@ -7,5 +7,9 @@ class InventoryFoodsController < ApplicationController
 
   def create; end
 
-  def destroy; end
+  def destroy
+    @inventory_food = InventoryFood.find_by_id(params[:id])
+    @inventory_food.destroy
+    redirect_to inventory_path(params[:inventory_id])
+  end
 end
