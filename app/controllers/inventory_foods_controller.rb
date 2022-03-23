@@ -14,7 +14,7 @@ class InventoryFoodsController < ApplicationController
     @inventory_food = InventoryFood.new(inventory_food_params.merge(inventory_id: @inventory.id))
     if @inventory_food.valid?
       @inventory_food.save
-      redirect_to inventory_path(@inventory.id)
+      redirect_to inventory_path(@inventory.id), flash: { notice: 'Food created successfully.' }
     else
       render :new
     end
@@ -23,7 +23,7 @@ class InventoryFoodsController < ApplicationController
   def destroy
     @inventory_food = InventoryFood.find_by_id(params[:id])
     @inventory_food.destroy
-    redirect_to inventory_path(params[:inventory_id])
+    redirect_to inventory_path(params[:inventory_id]), flash: { notice: 'Item deleted.' }
   end
 
   private
