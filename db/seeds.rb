@@ -19,6 +19,7 @@ recipe_4 = Recipe.create(name: 'Recipe 4', preparation_time: 95, cooking_time: 6
 recipe_5 = Recipe.create(name: 'Recipe 5', preparation_time: 75, cooking_time: 60, description: 'This is a description', public: true, user: user_2)
 recipe_6 = Recipe.create(name: 'Recipe 6', preparation_time: 60, cooking_time: 35, description: 'This is a description', public: true, user: user_1)
 
+
 # Inventories
 Inventory.create(name: 'Inventory 1', user_id: 1)
 Inventory.create(name: 'Inventory 2', user_id: 1)
