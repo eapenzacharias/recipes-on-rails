@@ -8,8 +8,7 @@ module RecipesHelper
 
   def total_price(recipe)
     sum = 0
-    recipe.recipe_foods&.each { |i| sum += i.quantity * i.food.price}
+    recipe.recipe_foods&.each { |i| sum += i.quantity * i.food.price }
     sum
   end
-
 end

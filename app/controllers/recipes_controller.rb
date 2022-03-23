@@ -2,6 +2,8 @@
 
 # RecipesController
 class RecipesController < ApplicationController
+  before_action :fetch_recipe, only: %i[show destroy toogle_public]
+
   def index
     @current_user = current_user
     if @current_user.nil?
@@ -30,11 +32,17 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  def toogle_public
+  def fetch_recipe
     @recipe = Recipe.find_by_id(params[:recipe_id])
+  end
+
+  def toogle_public
+    @recipe = fetch_recipe
     @recipe.public = !@recipe.public
+    text = 'private'
+    text = 'public' if @recipe.public
     if @recipe.save
-      flash[:success] = "#{@recipe.name} is now #{@recipe.public ? 'public' : 'private'}!"
+      flash[:success] = "#{@recipe.name} is now #{text}!"
     else
       flash[:fail] = @recipe.public
     end
