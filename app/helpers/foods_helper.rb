@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-# FoodsHelper
+# Food helper
 module FoodsHelper
 end
