@@ -13,8 +13,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by_id(params[:id])
+    @recipe_foods = @recipe&.recipe_foods
     @recipe = 'No recipes' if @recipe.nil?
-    @recipe_foods = @recipe.recipe_foods
     @current_user = current_user
   end
 

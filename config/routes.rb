@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :foods, except: [:update]
   resources :inventories, only: [:index, :show, :destroy, :new, :create]
-  resources :recipes, only: [:index, :show, :destroy, :put ]
+  resources :recipes, only: [:index, :show, :destroy, :put ] do
+    resources :recipe_foods, path: 'food', only: [:destroy]
+  end
   # match 'recipes/:recipe_id/toogle_public' => 'recipes#toogle_public', as: :toogle_public, via: :put
   match 'recipes/:recipe_id' => 'recipes#toogle_public', as: :toogle_public, via: :put
   match 'public_recipes' => 'recipes#public_recipes', as: :public_recipes, via: :get
