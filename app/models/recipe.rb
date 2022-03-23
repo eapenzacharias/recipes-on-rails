@@ -3,7 +3,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   validates :name, presence: true
-  validates :public, presence: true
+  validates :public, inclusion: { in: [ true, false ] }
   has_many :recipe_foods
   has_many :foods, through: :recipe_foods
 end

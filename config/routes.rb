@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :recipe_foods, path: 'food', only: [:destroy, :new, :create]
   end
   # match 'recipes/:recipe_id/toogle_public' => 'recipes#toogle_public', as: :toogle_public, via: :put
-  match 'recipes/:recipe_id' => 'recipes#toogle_public', as: :toogle_public, via: :put
+  match 'recipes/:recipe_id' => 'recipes#toogle_public', as: :toogle_public, via: :patch
   match 'public_recipes' => 'recipes#public_recipes', as: :public_recipes, via: :get
   # Defines the root path route ("/")
   root "recipes#index"

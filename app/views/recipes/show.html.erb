@@ -12,7 +12,7 @@
         <div class="sm:w-full md:w-1/3 p-4 flex flex-col justify-center leading-normal">
           <% if @recipe.user == @current_user %>
             <div class="flex items-center justify-center w-full mb-12">
-              <%= button_to toogle_public_path(@recipe.id), method: :put do %>
+              <%= button_to toogle_public_path(@recipe.id), method: :patch do %>
                 <label for="toogleA" class="flex items-center cursor-pointer">
                   <!-- toggle -->
                   <div class="relative">
