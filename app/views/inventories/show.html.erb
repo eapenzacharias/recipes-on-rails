@@ -3,6 +3,7 @@
     <h1 class="font-bold text-4xl">
       <%= @inventory.name %>
     </h1>
+    <%= link_to "Add food", inventory_foods_new_path(@inventory.id), class: "text-sm px-4 py-2 border rounded hover:border-transparent hover:bg-green-200" %>
   </header>
   <p>Find me in app/views/inventories/show.html.erb</p>
 </div>
