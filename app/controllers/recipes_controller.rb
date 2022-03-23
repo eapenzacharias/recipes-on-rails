@@ -20,7 +20,23 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.destroy
-    flash.now[:success] = 'recipe deleted.'
-    redirect_to recipes_index_path
+    flash[:success] = 'recipe deleted.'
+    redirect_to recipes_path
   end
+
+  def toogle_public
+
+    @recipe = Recipe.find_by_id(params[:recipe_id])
+    flash[:success] = "updated: #{@recipe.public}"
+    if @recipe.update(public: !@recipe.public)
+      flash[:success] = "#{@recipe.name } updated"
+    else
+      flash[:success] = "#{@recipe.errors.full_messages } Public: #{@recipe.public}"
+    end
+    redirect_to recipe_path(@recipe.id)
+  end
+
+  # def public_recipes
+  #   @recipes = Recipe.where(public: true)
+  # end
 end
