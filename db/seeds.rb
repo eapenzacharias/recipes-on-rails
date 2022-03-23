@@ -29,3 +29,9 @@ Inventory.create(name: 'Inventory 3', user_id: 1)
 food_1 = Food.create(name: 'Apple', measurement_unit: 'grams', price: '5', user: user_1)
 food_2 = Food.create(name: 'Pineapple', measurement_unit: 'grams', price: '1', user: user_1)
 food_3 = Food.create(name: 'Chicken breasts', measurement_unit: 'units', price: '2', user: user_1)
+
+# RecipeFoods
+
+recipe_food_1 = RecipeFood.create(quantity: 3, recipe: recipe_1, food: food_1 )
+recipe_food_1 = RecipeFood.create(quantity: 6, recipe: recipe_1, food: food_2 )
+recipe_food_1 = RecipeFood.create(quantity: 1, recipe: recipe_1, food: food_3 )
