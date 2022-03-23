@@ -7,7 +7,9 @@ class InventoriesController < ApplicationController
     @inventories = @user.inventories unless @user.nil?
   end
 
-  def show; end
+  def show
+    @inventory = Inventory.find_by_id(params[:id])
+  end
 
   def destroy
     @inventory = Inventory.find_by_id(params[:id])
