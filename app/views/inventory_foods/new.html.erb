@@ -19,7 +19,12 @@
           <%= form.select :food_id, options_from_collection_for_select(@available_food, "id", "name") %>
         </div>
         <%= form.submit "Submit", class: 'text-sm px-4 py-2 leading-none border rounded hover:border-transparent hover:bg-green-200 max-w-fit' %>
+        <div>
+          <p>
+            Food is not in the list? Add one <%= link_to 'here', new_food_path, class: "text-teal-500 hover:text-teal-700" %>.
+          </p>
+        </div>
       </div>
     <% end %>
-  </div>
+</div>
 </div>
