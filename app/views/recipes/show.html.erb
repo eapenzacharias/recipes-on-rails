@@ -52,7 +52,7 @@
             <th class="px-4 w-3/12 py-2">Action</th>
           </tr>
         </thead>
-        <tbody><%= render partial:"ingredient" %>
+        <tbody><%= render partial:"recipe_food", collection: @recipe_foods %>
         </table>
       </div>
     <% else %>

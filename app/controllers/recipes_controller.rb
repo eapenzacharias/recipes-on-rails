@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find_by_id(params[:id])
     @recipe = 'No recipes' if @recipe.nil?
+    @recipe_foods = @recipe.recipe_foods
     @current_user = current_user
   end
 
@@ -25,14 +26,12 @@ class RecipesController < ApplicationController
   end
 
   def toogle_public
-
     @recipe = Recipe.find_by_id(params[:recipe_id])
-    flash[:success] = "updated: #{@recipe.public}"
-    if @recipe.update(public: !@recipe.public)
-      flash[:success] = "#{@recipe.name } updated"
-    else
-      flash[:success] = "#{@recipe.errors.full_messages } Public: #{@recipe.public}"
-    end
+    flash[:success] = if @recipe.update(public: !@recipe.public)
+                        "#{@recipe.name} updated"
+                      else
+                        "#{@recipe.errors.full_messages} Public: #{@recipe.public}"
+                      end
     redirect_to recipe_path(@recipe.id)
   end
 
