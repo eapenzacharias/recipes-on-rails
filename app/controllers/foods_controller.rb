@@ -21,10 +21,10 @@ class FoodsController < ApplicationController
     @user = current_user
     @food = Food.new(food_params)
     @food.user = @user
-      if @food.save
-       redirect_to foods_path, flash: { success: 'Food created successfully.' }
-      else
-        render :new, flash: { danger: @food.errors.messages }
+    if @food.save
+      redirect_to foods_path, flash: { success: 'Food created successfully.' }
+    else
+      render :new, flash: { danger: @food.errors.messages }
     end
   end
 
