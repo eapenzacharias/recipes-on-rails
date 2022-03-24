@@ -32,10 +32,6 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  def fetch_recipe
-    @recipe = Recipe.find_by_id(params[:recipe_id])
-  end
-
   def toogle_public
     @recipe = fetch_recipe
     @recipe.public = !@recipe.public
@@ -51,5 +47,10 @@ class RecipesController < ApplicationController
 
   def public_recipes
     @recipes = Recipe.where(public: true)
+  end
+
+  private
+  def fetch_recipe
+    @recipe = Recipe.find_by_id(params[:recipe_id])
   end
 end
