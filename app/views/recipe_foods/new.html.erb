@@ -1,5 +1,5 @@
 <div class="w-full">
-  <h1 class="font-bold text-4xl">New Inventory Item</h1>
+  <h1 class="font-bold text-4xl">New Ingredient</h1>
   <div class="mt-14">
     <%= form_with model: @recipe_food, url: recipe_recipe_foods_path(@recipe.id), local: true, html: {"data-turbo": "false"} do |form| %>
       <% if @recipe_food.errors.any? %>
