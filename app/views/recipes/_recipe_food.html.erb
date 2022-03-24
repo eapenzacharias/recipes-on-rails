@@ -1,0 +1,11 @@
+<tr>
+  <td class="border px-4 py-2"> <%= recipe_food.food.name %></td>
+  <td class="border px-4 py-2"><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+  <td class="border px-4 py-2"><%= recipe_food.food.price * recipe_food.quantity %></td>
+  <% if recipe_food.recipe.user == current_user %>
+    <td class="border px-4 py-2 flex flex-row justify-around">
+      <%= link_to "Modify", foods_path, class: "flex bg-transparent text-sm hover:bg-yellow-500 text-yellow-700 justify-center font-semibold hover:text-white p-1 px-4 border border-yellow-500 hover:border-transparent rounded"%>
+      <%= button_to "Remove", recipe_recipe_food_path(recipe_food.recipe_id, recipe_food.id), method: :delete, class: "flex bg-transparent text-sm hover:bg-red-500 text-red-700 justify-center font-semibold hover:text-white p-1 px-4 border border-red-500 hover:border-transparent rounded"%>
+    </td>
+  <% end %>
+</tr>

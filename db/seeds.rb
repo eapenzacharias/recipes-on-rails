@@ -11,7 +11,6 @@ user_1 = User.create(name: 'User 1', email: 'user1@test.com', password: '1234567
 user_2 = User.create(name: 'User 2', email: 'user2@test.com', password: '1234567', password_confirmation: '1234567')
 
 # Recipe Seeds
-
 recipe_1 = Recipe.create(name: 'Recipe 1', preparation_time: 45, cooking_time: 30, description: 'This is a description', public: true, user: user_1)
 recipe_2 = Recipe.create(name: 'Recipe 2', preparation_time: 85, cooking_time: 60, description: 'This is a description', public: true, user: user_1)
 recipe_3 = Recipe.create(name: 'Recipe 3', preparation_time: 15, cooking_time: 10, description: 'This is a description', public: true, user: user_1)
@@ -30,7 +29,12 @@ food_1 = Food.create(name: 'Apple', measurement_unit: 'grams', price: '5', user:
 food_2 = Food.create(name: 'Pineapple', measurement_unit: 'grams', price: '1', user: user_1)
 food_3 = Food.create(name: 'Chicken breasts', measurement_unit: 'units', price: '2', user: user_1)
 
-# Inventory Foods
+# RecipeFoods
+recipe_food_1 = RecipeFood.create(quantity: 3, recipe: recipe_1, food: food_1 )
+recipe_food_1 = RecipeFood.create(quantity: 6, recipe: recipe_1, food: food_2 )
+recipe_food_1 = RecipeFood.create(quantity: 1, recipe: recipe_1, food: food_3 )
+
+# InventoryFoods
 InventoryFood.create(quantity: 2, inventory_id: 1, food_id: 1)
 InventoryFood.create(quantity: 2, inventory_id: 1, food_id: 2)
 InventoryFood.create(quantity: 2, inventory_id: 1, food_id: 3)
