@@ -50,6 +50,7 @@ class RecipesController < ApplicationController
   end
 
   private
+
   def fetch_recipe
     @recipe = Recipe.find_by_id(params[:recipe_id])
   end
