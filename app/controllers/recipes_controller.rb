@@ -20,13 +20,29 @@ class RecipesController < ApplicationController
     @current_user = current_user
   end
 
+  def new
+    @recipe = Recipe.new
+    @foods = Food.all
+    @recipe.recipe_foods.build
+  end
+
+  def create
+    @recipe = Recipe.new(recipe_params.merge(user: current_user))
+    if @recipe.save
+      flash[:success] = 'Recipe created.'
+      redirect_to recipe_path(@recipe.id)
+    else
+      flash[:fail] = 'Recipe creation unsucessful.'
+    end
+  end
+
   def destroy
     @recipe = Recipe.find_by_id(params[:id])
     if @recipe.user == current_user
       if @recipe.destroy
-        flash[:success] = 'recipe deleted.'
+        flash[:success] = 'Recipe deleted.'
       else
-        flash[:fail] = 'recipe deletion unsucessful.'
+        flash[:fail] = 'Recipe deletion unsucessful.'
       end
     end
     redirect_to recipes_path
@@ -53,5 +69,9 @@ class RecipesController < ApplicationController
 
   def fetch_recipe
     @recipe = Recipe.find_by_id(params[:recipe_id])
+  end
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
