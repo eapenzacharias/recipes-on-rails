@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params.merge(user: current_user))
     if @recipe.save
       flash[:success] = 'Recipe created.'
+      redirect_to recipe_path(@recipe.id)
     else
       flash[:fail] = 'Recipe creation unsucessful.'
     end
@@ -68,5 +69,9 @@ class RecipesController < ApplicationController
 
   def fetch_recipe
     @recipe = Recipe.find_by_id(params[:recipe_id])
+  end
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
