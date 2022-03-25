@@ -1,12 +1,17 @@
 <div class="w-full">
   <div class="flex justify-between">
   <h1 class="font-bold text-4xl">Shopping List</h1>
+  <p>   <%= @recipe_ingredients %> </p>
+  <p><%= @inventory_quantities %></p>
+  <p><%= @shopping_list %></p>
+
+
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <div>Amount of food to buy:</div>
   <div>Total value of food needed:</div>
-  <div>Recipe:</div>
-  <div>Inventory:</div>
+  <div>Recipe: <%= @recipe.name %></div>
+  <div>Inventory: <%= @inventory.name %></div>
   </div>
 
 
@@ -23,6 +28,13 @@
     </tr>
   </thead>
   <tbody class="bg-white dark:bg-slate-800 text-center">
+    <% @recipe_ingredients.each do |food| %>
+    <tr>
+      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400"><%= food[:food_name] %></td>
+      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400"><%= 0 %></td>
+      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">  <%=food[:price] %></td>
+    </tr>
+    <% end %>
   </tbody>
   </table>
   </div>
