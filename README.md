@@ -1,6 +1,10 @@
 # Recipes on Rails
 
 > Recipe sharing with Ruby on Rails.
+<img width="1510" src="https://user-images.githubusercontent.com/49812651/160212156-bf87df01-81e5-474a-b08d-21b6bfe2693e.png">
+<img width="1510" src="https://user-images.githubusercontent.com/49812651/160212165-cabbc653-69cb-439e-9d39-e043e2eb7204.png">
+<img width="1510" src="https://user-images.githubusercontent.com/49812651/160212178-71cbb0a6-d672-4045-9d6e-84ad9f7b6cc8.png">
+<img width="1510" src="https://user-images.githubusercontent.com/49812651/160212181-ff1f31df-65aa-4d32-9915-1696dc4b0580.png">
 
 
 The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
