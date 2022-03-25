@@ -1,4 +1,4 @@
-<div class="w-full">
+<div class="" @click.away="open = false">
   <h1 class="font-bold text-4xl">New Shopping List</h1>
   <div class="mt-14">
     <%= form_with url: shopping_list_path, method: :get, local: true, html: {"data-turbo": "false"} do |form| %>
