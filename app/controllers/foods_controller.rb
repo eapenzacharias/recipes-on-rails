@@ -2,7 +2,6 @@
 
 # Food controller
 class FoodsController < ApplicationController
-
   def new
     @food = Food.new
   end
@@ -43,11 +42,11 @@ class FoodsController < ApplicationController
   private
 
   def check_for_associations(food)
-    if food.recipes.count > 0 || food.inventories.count > 0
+    if food.recipes.count.positive? || food.inventories.count.positive?
       flash[:fail] = "Can't delete food in use"
-      return false
+      false
     else
-      return true
+      true
     end
   end
 
