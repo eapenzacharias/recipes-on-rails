@@ -1,17 +1,13 @@
 <div class="w-full">
-  <header class="flex justify-between items-baseline">
+  <header class="flex flex-wrap justify-between items-baseline gap-7">
     <h1 class="font-bold text-4xl">
       <%= @inventory.name %>
     </h1>
-    <%= link_to "Add food", inventory_foods_new_path(@inventory.id), class: "text-sm px-4 py-2 border rounded hover:border-transparent hover:bg-green-200" %>
+    <%= 
+      link_to "Add food", inventory_foods_new_path(@inventory.id), 
+      class: "text-sm px-4 py-2 leading-none bg-transparent hover:bg-teal-500 text-teal-700 justify-center font-semibold hover:text-white border border-teal-500 hover:border-transparent rounded"
+    %>
   </header>
-  <% flash.each do |type, msg| %>
-    <% if type === 'notice' %>
-      <div class="px-7 py-3 bg-green-200 mt-4">
-        <p><%= msg %></p>
-      </div>
-    <% end %>
-  <% end %>
   <div class="mt-6 relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm rounded text-center">
       <thead class="text-white">
@@ -31,7 +27,10 @@
               <%= "#{item.quantity} #{item.food.measurement_unit}" %>
             </td>
             <td class="border px-4 py-2">
-              <%= button_to "Delete", inventory_food_path(@inventory.id, item.id), method: :delete, class:"bg-red-500 text-white font-bold py-2 px-4 rounded" %>
+              <%= 
+                button_to "Delete", inventory_food_path(@inventory.id, item.id), method: :delete,
+                class: "text-sm px-4 py-2 leading-none bg-transparent hover:bg-red-500 text-red-700 justify-center font-semibold hover:text-white border border-red-500 hover:border-transparent rounded"
+              %>
             </td>
           </tr>
         <% end %>
