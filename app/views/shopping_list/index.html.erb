@@ -20,9 +20,9 @@
       <tbody>
         <% @shopping_list.each do |food| %>
           <tr>
-            <td class="px-4 py-2"><%= food[:name] %></td>
-            <td class="px-4 py-2"><%= food[:quantity] %></td>
-            <td class="px-4 py-2">  <%= number_to_currency(food[:price])  %></td>
+            <td class="border px-4 py-2"><%= food[:name] %></td>
+            <td class="border px-4 py-2"><%= food[:quantity] %></td>
+            <td class="border px-4 py-2">  <%= number_to_currency(food[:price])  %></td>
           </tr>
         <% end %>
       </tbody>
