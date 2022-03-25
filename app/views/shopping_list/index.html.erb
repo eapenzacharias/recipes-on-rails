@@ -1,11 +1,6 @@
 <div class="w-full">
   <div class="flex justify-between">
   <h1 class="font-bold text-4xl">Shopping List</h1>
-  <p>   <%= @recipe_ingredients %> </p>
-  <p><%= @inventory_quantities %></p>
-  <p><%= @shopping_list %></p>
-
-
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <div>Amount of food to buy:</div>
@@ -28,11 +23,11 @@
     </tr>
   </thead>
   <tbody class="bg-white dark:bg-slate-800 text-center">
-    <% @recipe_ingredients.each do |food| %>
+    <% @shopping_list.each do |food| %>
     <tr>
-      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400"><%= food[:food_name] %></td>
-      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400"><%= 0 %></td>
-      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">  <%=food[:price] %></td>
+      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400"><%= food[:name] %></td>
+      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400"><%= food[:quantity] %></td>
+      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">  <%= number_to_currency(food[:price] * food[:quantity])  %></td>
     </tr>
     <% end %>
   </tbody>

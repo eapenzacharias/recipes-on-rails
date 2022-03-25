@@ -40,6 +40,6 @@ class ShoppingListController < ApplicationController
         list.push({ name: recipe_item[:food_name], quantity: shopping_list_quantity, price: recipe_item[:unit_price] })
       end
     end
-    shopping_list
+    list
   end
 end
