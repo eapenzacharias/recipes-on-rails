@@ -57,6 +57,9 @@
         <tbody><%= render partial:"recipe_food", collection: @recipe_foods %>
         </table>
       </div>
+      <div>
+        <%= render partial:"shared/shopping_list_form" %>
+      </div>
     <% else %>
       <h2>You are not authorized to view this recipe!</h2>
     <% end %>

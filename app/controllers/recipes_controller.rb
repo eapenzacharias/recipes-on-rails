@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
     @recipe_foods = @recipe&.recipe_foods
     @recipe = 'No recipes' if @recipe.nil?
     @current_user = current_user
+    @inventories = current_user.inventories
   end
 
   def new
