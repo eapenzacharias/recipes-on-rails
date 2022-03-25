@@ -3,8 +3,8 @@
   <h1 class="font-bold text-4xl">Shopping List</h1>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-  <div>Amount of food to buy:</div>
-  <div>Total value of food needed:</div>
+  <div>Amount of food to buy: <%= @shopping_list.length %> items</div>
+  <div>Total value of food needed: <%=number_to_currency( @shopping_list.map { |item| item[:price]}.sum )%></div>
   <div>Recipe: <%= @recipe.name %></div>
   <div>Inventory: <%= @inventory.name %></div>
   </div>
@@ -27,7 +27,7 @@
     <tr>
       <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400"><%= food[:name] %></td>
       <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400"><%= food[:quantity] %></td>
-      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">  <%= number_to_currency(food[:price] * food[:quantity])  %></td>
+      <td class="border-b border-slate-200 dark:border-slate-600 p-4 pl-8 text-slate-500 dark:text-slate-400">  <%= number_to_currency(food[:price])  %></td>
     </tr>
     <% end %>
   </tbody>

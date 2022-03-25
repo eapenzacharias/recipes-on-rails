@@ -15,8 +15,8 @@ class ShoppingListController < ApplicationController
     recipe_ingredients = []
     recipe&.recipe_foods&.each do |food|
       food_data = Food.find_by_id(food.food_id)
-      recipe_ingredients.push({ id: food.food_id, food_name: food_data.name, recipe_quantity: food.quantity,
-                                unit_price: food_data.price })
+      recipe_ingredients.push({ id: food.food_id, food_name: food_data.name, unit: food_data.measurement_unit,
+                                recipe_quantity: food.quantity, unit_price: food_data.price })
     end
     [recipe, recipe_ingredients]
   end
@@ -30,14 +30,14 @@ class ShoppingListController < ApplicationController
     [inventory, inventory_quantities]
   end
 
-  def build_shopping_list(recipe, inventory)
-    list = []
+  def build_shopping_list(recipe, inventory, list = [])
     recipe.each do |recipe_item|
       inventory_data = inventory.select { |inventory_item| inventory_item[:id] == recipe_item[:id] }
       inventory_quantity = inventory_data.nil? ? 0 : inventory_data[0][:inventory_quantity]
       shopping_list_quantity = recipe_item[:recipe_quantity] - inventory_quantity
       if shopping_list_quantity.positive?
-        list.push({ name: recipe_item[:food_name], quantity: shopping_list_quantity, price: recipe_item[:unit_price] })
+        list.push({ name: recipe_item[:food_name], quantity: shopping_list_quantity, unit: recipe_item[:unit],
+                    price: recipe_item[:unit_price] * shopping_list_quantity })
       end
     end
     list
