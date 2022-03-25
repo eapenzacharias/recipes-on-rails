@@ -2,6 +2,7 @@
 
 # Food controller
 class FoodsController < ApplicationController
+
   def new
     @food = Food.new
   end
@@ -32,12 +33,23 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    @food.destroy
-    flash.now[:success] = 'Food deleted successfully.'
+    if check_for_associations(@food)
+      @food.destroy
+      flash.now[:success] = 'Food deleted successfully.'
+    end
     redirect_to foods_path
   end
 
   private
+
+  def check_for_associations(food)
+    if food.recipes.count > 0 || food.inventories.count > 0
+      flash[:fail] = "Can't delete food in use"
+      return false
+    else
+      return true
+    end
+  end
 
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price)
