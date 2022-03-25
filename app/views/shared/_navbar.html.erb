@@ -37,7 +37,8 @@ x-data="{ isOpen: false }"
   <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
         :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }"
         @click.away="isOpen = false"
-        x-show.transition="true">
+        x-show="isOpen"
+        x-transition>
     <div class="text-sm lg:flex-grow">
       <%= link_to "Recipes", public_recipes_path, class: "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
       <% if user_signed_in? %>
