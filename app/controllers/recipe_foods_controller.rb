@@ -27,7 +27,7 @@ class RecipeFoodsController < ApplicationController
     else
       flash[:fail] = 'Ingedient deletion unsucessful.'
     end
-    redirect_to recipe_path(params[:recipe_id]), methpod: :get
+    redirect_to recipes_path(params[:recipe_id]), method: :get
   end
 
   private
