@@ -14,10 +14,7 @@
     <header> <%= render partial: "shared/navbar" %>
     </header>
     <div class="mx-auto">
-      <div
-      class="w-full"
-      x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)"
-        >
+      <div class="w-full" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
         <% flash.each do |type, msg| %>
           <% if type === 'notice' %>
             <div class="mx-auto bg-green-200">
