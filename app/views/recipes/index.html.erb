@@ -9,10 +9,8 @@
       %>
     <% end %>
   </div>
-  <% if @recipes.length == 0 %>
-    <div class="py-6 px-2 text-center text-xl font-bold text-amber-500  ">
-      You dont have any recipes!
-    </div>
+  <% if @recipes.empty? %>
+    <p class="border p-7 border-yellow-400 bg-yellow-200 font-medium">You don't have any recipes.</p>
   <% else %>
     <%= render partial: "shared/recipe", collection: @recipes %>
   <% end %>
