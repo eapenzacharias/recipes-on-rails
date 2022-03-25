@@ -36,16 +36,18 @@
       </div>
       <p class="text-gray-700 text-base p-4"><%= @recipe.description %></p>
     </div>
-    <div class="w-full bg-white rounded p-4 flex flex-row justify-between leading-normal">
-      <button type="" class="flex bg-transparent hover:bg-teal-500 text-teal-700 justify-center font-semibold hover:text-white p-1 px-4 border border-teal-500 hover:border-transparent rounded" @click="open = true">Generate Shopping List</button>
+    <div class="w-full bg-white rounded p-4 flex flex-row justify-between leading-normal gap-2">
+      <% if user_signed_in? %>
+        <button type="" class="flex bg-transparent hover:bg-teal-500 text-teal-700 justify-center font-semibold hover:text-white p-1 px-4 border border-teal-500 hover:border-transparent rounded" @click="open = true">Generate Shopping List</button>
+      <% end %>
       <% if @recipe.user == @current_user %>
-        <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "flex bg-transparent hover:bg-lime-500 text-lime-700 justify-center font-semibold hover:text-white p-1 px-4 border border-lime-500 hover:border-transparent rounded"%>
+        <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "flex bg-transparent hover:bg-lime-500 text-lime-700 justify-center text-center font-semibold hover:text-white p-1 px-4 border border-lime-500 hover:border-transparent rounded"%>
       <% end %>
     </div>
-    <div class="mt-6">
-      <table class="table-fixed w-full">
-        <thead>
-          <tr>
+    <div class="mt-6 relative md:overflow-hidden overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm rounded">
+        <thead class="text-white">
+          <tr class="bg-teal-700">
             <th class="px-4 w-5/12 py-2">Food</th>
             <th class="px-4 w-2/12 py-2">Quantity</th>
             <th class="px-4 w-2/12 py-2">Value</th>
@@ -57,9 +59,11 @@
         <tbody><%= render partial:"recipe_food", collection: @recipe_foods %>
         </table>
       </div>
-      <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);" x-show="open">
-        <%= render partial:"shared/shopping_list_form" %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);" x-show="open">
+          <%= render partial:"shared/shopping_list_form" %>
+        </div>
+      <% end %>
     <% else %>
       <h2>You are not authorized to view this recipe!</h2>
     <% end %>

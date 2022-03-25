@@ -2,13 +2,15 @@
   <div class="flex justify-between items-baseline mb-6">
     <h1 class="font-bold text-4xl"> <%= @current_user.name %>'s Recipes</h1>
     <% if user_signed_in? %>
-      <%= link_to "New Recipe", new_recipe_path, class: "text-sm px-4 py-2 border rounded hover:border-transparent hover:bg-green-200" %>
+      <%= 
+        link_to "New Recipe", 
+        new_recipe_path,
+        class: "text-sm px-4 py-2 leading-none bg-transparent hover:bg-teal-500 text-teal-700 justify-center font-semibold hover:text-white border border-teal-500 hover:border-transparent rounded"
+      %>
     <% end %>
   </div>
-  <% if @recipes.length == 0 %>
-    <div class="py-6 px-2 text-center text-xl font-bold text-amber-500  ">
-      You dont have any recipes!
-    </div>
+  <% if @recipes.empty? %>
+    <p class="border p-7 border-yellow-400 bg-yellow-200 font-medium">You don't have any recipes.</p>
   <% else %>
     <%= render partial: "shared/recipe", collection: @recipes %>
   <% end %>
