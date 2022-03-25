@@ -37,12 +37,12 @@
       <p class="text-gray-700 text-base p-4"><%= @recipe.description %></p>
     </div>
     <div class="w-full bg-white rounded p-4 flex flex-row justify-between leading-normal gap-2">
-      <button type="" class="flex bg-transparent hover:bg-teal-500 text-teal-700 justify-center font-semibold hover:text-white p-1 px-4 border border-teal-500 hover:border-transparent rounded" @click="open = true">Generate Shoping List</button>
+      <button type="" class="flex bg-transparent hover:bg-teal-500 text-teal-700 justify-center font-semibold hover:text-white p-1 px-4 border border-teal-500 hover:border-transparent rounded" @click="open = true">Generate Shopping List</button>
       <% if @recipe.user == @current_user %>
-        <%= link_to "Add Ingedients", new_recipe_recipe_food_path(@recipe.id), class: "flex bg-transparent hover:bg-lime-500 text-lime-700 justify-center text-center font-semibold hover:text-white p-1 px-4 border border-lime-500 hover:border-transparent rounded"%>
+        <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "flex bg-transparent hover:bg-lime-500 text-lime-700 justify-center text-center font-semibold hover:text-white p-1 px-4 border border-lime-500 hover:border-transparent rounded"%>
       <% end %>
     </div>
-    <div class="mt-6 relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="mt-6 relative md:overflow-hidden overflow-x-auto shadow-md sm:rounded-lg">
       <table class="w-full text-sm rounded">
         <thead class="text-white">
           <tr class="bg-teal-700">

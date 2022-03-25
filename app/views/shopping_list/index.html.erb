@@ -11,15 +11,13 @@
 
 
 
-  <div class="not-prose relative bg-slate-50 rounded-xl overflow-hidden mt-4">
-  <div class="relative rounded-xl overflow-auto">
-  <div class="shadow-sm overflow-hidden my-3">
-    <table class="border-collapse table-auto w-full text-sm">
-  <thead>
-    <tr>
-      <th class="border-b font-medium pl-8 pt-0 border-teal-900 bg-slate-100"><%= link_to "Food", :sort => "food"%> </th>
-      <th class="border-b font-medium pl-8  border-teal-900 bg-slate-100"><%= link_to "Quantity", :sort => "quantity"%> </th>
-      <th class="border-b font-medium pl-8 border-teal-900 bg-slate-100"><%= link_to "Price", :sort => "price"%> </th>
+  <div class="mt-6 relative md:overflow-hidden overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm rounded text-center">
+  <thead class="text-white">
+    <tr class="bg-teal-700">
+      <th class="px-4 py-2 text-center"><%= link_to "Food", :sort => "food"%> </th>
+      <th class="px-4 py-2 text-center"><%= link_to "Quantity", :sort => "quantity"%> </th>
+      <th class="px-4 py-2 text-center"><%= link_to "Price", :sort => "price"%> </th>
     </tr>
   </thead>
   <tbody class="bg-white dark:bg-slate-800 text-center">
@@ -33,7 +31,6 @@
   </tbody>
   </table>
   </div>
-</div><div class="absolute inset-0 pointer-events-none border border-black/5 rounded-xl dark:border-white/5"></div></div>
 <% flash.each do |type, msg| %>
       <div class="alert alert-<%= type %>">
         <%= msg %>
