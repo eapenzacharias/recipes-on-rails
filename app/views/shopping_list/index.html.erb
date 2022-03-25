@@ -5,8 +5,8 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
   <div>Amount of food to buy: <%= @shopping_list.length %> items</div>
   <div>Total value of food needed: <%=number_to_currency( @shopping_list.map { |item| item[:price]}.sum )%></div>
-  <div>Recipe: <%= @recipe.name %></div>
-  <div>Inventory: <%= @inventory.name %></div>
+  <div>Recipe: <%= link_to @recipe.name, recipe_path(@recipe.id), class: "underline text-blue-500" %></div>
+  <div>Inventory: <%= link_to @inventory.name, inventory_path(@inventory.id), class: "underline text-blue-500" %></div>
   </div>
 
 
