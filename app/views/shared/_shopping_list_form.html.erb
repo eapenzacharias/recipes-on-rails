@@ -1,0 +1,16 @@
+<div class="border p-7 bg-white rounded" @click.away="open = false">
+  <%= form_with url: shopping_list_path, method: :get, local: true, html: {"data-turbo": "false"} do |form| %>
+    <div class="flex flex-col gap-7">
+      <h1 class="font-bold text-4xl">New Shopping List</h1>
+      <div>
+        <%= form.label :recipe_id, class: 'font-medium block mb-2' %>
+        <%= form.text_field :recipe_id, value: @recipe.id %>
+      </div>
+      <div>
+        <%= form.label :inventory_id, class: 'font-medium block mb-2' %>
+        <%= form.select :inventory_id, options_from_collection_for_select(@inventories, "id", "name") %>
+      </div>
+      <%= form.submit "Submit", class: 'text-sm px-4 py-2 leading-none border rounded hover:border-transparent hover:bg-green-200 max-w-fit' %>
+    </div>
+  <% end %>
+</div>

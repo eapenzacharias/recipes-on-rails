@@ -1,4 +1,4 @@
-<div class="flex-col min-w-full" >
+<div class="flex-col min-w-full" x-data="{ open: false }">
   <% if @recipe == 'No recipes' %>
     <h2>Invalid link!</h2>
   <% elsif @recipe.public || @recipe.user == @current_user %>
@@ -56,6 +56,9 @@
         </thead>
         <tbody><%= render partial:"recipe_food", collection: @recipe_foods %>
         </table>
+      </div>
+      <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);" x-show="open">
+        <%= render partial:"shared/shopping_list_form" %>
       </div>
     <% else %>
       <h2>You are not authorized to view this recipe!</h2>
