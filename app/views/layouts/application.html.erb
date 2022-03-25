@@ -7,13 +7,14 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <%= javascript_importmap_tags %>
   </head>
   <body>
     <header> <%= render partial: "shared/navbar" %>
     </header>
     <div class="mx-auto">
-      <div class="w-full">
+      <div class="w-full" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
         <% flash.each do |type, msg| %>
           <% if type === 'notice' %>
             <div class="mx-auto bg-green-200">
